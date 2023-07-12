@@ -20,11 +20,6 @@ jobs:
     - name: Install Nix
       uses: cachix/install-nix-action@v19
 
-    - name: Configure Cachix
-      uses: cachix/cachix-action@v12
-      with:
-        name: dapp
-
     - name: Install dependencies
       run: nix-shell --run 'make'
 
