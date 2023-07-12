@@ -8,7 +8,7 @@
 
 | **Evaluation**  | **Details** | **Score** |
 |-----------------|-------------|-----------|
-| Code Complexity | see starkex-metrics.html | 4847 |
+| Code Complexity | see metrics report | 4847 |
 | Scope           | Number of contracts in scope | 109 |
 | Familiarity     | Scale of 1 (very familiar) to 5 (brand new tech) | 3 |
 | Reward          | Reward amount / $200k (current savings goal) | 500% |
