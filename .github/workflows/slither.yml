@@ -3,12 +3,12 @@ on:
   push:
     branches: [main]
     paths:
-      - "contracts/**"
+      - "common-contracts/**"
       - ".github/workflows/slither.yaml"
   pull_request:
     branches: [main]
     paths:
-      - "contracts/**"
+      - "common-contracts/**"
 
 jobs:
   build:
