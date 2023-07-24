@@ -36,11 +36,10 @@ jobs:
         run: |
           sudo snap install solc
           python -m pip install --upgrade pip
-          pip install slither-analyzer==0.8.1 solc-select==0.2.1
+          pip3 install slither-analyzer==0.8.1 solc-select==0.2.1
 
       - name: Summary of static ananlysis
         run: |
-          print solc --version
           slither ./common-contracts/src/components/ --print human-summary
       #     slither ./common-contracts/src/interfaces --print human-summary
       #     slither ./common-contracts/src/libraries --print human-summary
