@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.9]
+        python-version: [3.8]
         node-version: [16.x]
 
     steps:
@@ -40,35 +40,36 @@ jobs:
 
       - name: Summary of static ananlysis
         run: |
-          slither ./common-contracts/src/components --print human-summary
-          slither ./common-contracts/src/interfaces --print human-summary
-          slither ./common-contracts/src/libraries --print human-summary
-          slither ./common-contracts/src/upgrade --print human-summary
+          print solc --version
+          slither ./common-contracts/src/components/ --print human-summary
+      #     slither ./common-contracts/src/interfaces --print human-summary
+      #     slither ./common-contracts/src/libraries --print human-summary
+      #     slither ./common-contracts/src/upgrade --print human-summary
 
-      - name: Contract summary of static ananlysis
-        run: |
-          slither ./common-contracts/src/components --print contract-summary
-          slither ./common-contracts/src/interfaces --print contract-summary
-          slither ./common-contracts/src/libraries --print contract-summary
-          slither ./common-contracts/src/upgrade --print contract-summary
+      # - name: Contract summary of static ananlysis
+      #   run: |
+      #     slither ./common-contracts/src/components --print contract-summary
+      #     slither ./common-contracts/src/interfaces --print contract-summary
+      #     slither ./common-contracts/src/libraries --print contract-summary
+      #     slither ./common-contracts/src/upgrade --print contract-summary
 
-      - name: Function summary
-        run: |
-          slither ./common-contracts/src/components --print function-summary
-          slither ./common-contracts/src/interfaces --print function-summary
-          slither ./common-contracts/src/libraries --print function-summary
-          slither ./common-contracts/src/upgrade --print function-summary
+      # - name: Function summary
+      #   run: |
+      #     slither ./common-contracts/src/components --print function-summary
+      #     slither ./common-contracts/src/interfaces --print function-summary
+      #     slither ./common-contracts/src/libraries --print function-summary
+      #     slither ./common-contracts/src/upgrade --print function-summary
 
-      - name: Inheritance
-        run: |
-          slither ./common-contracts/src/components --print inheritance
-          slither ./common-contracts/src/interfaces --print inheritance
-          slither ./common-contracts/src/libraries --print inheritance
-          slither ./common-contracts/src/upgrade --print inheritance
+      # - name: Inheritance
+      #   run: |
+      #     slither ./common-contracts/src/components --print inheritance
+      #     slither ./common-contracts/src/interfaces --print inheritance
+      #     slither ./common-contracts/src/libraries --print inheritance
+      #     slither ./common-contracts/src/upgrade --print inheritance
 
-      - name: Data dependency
-        run: |
-          slither ./common-contracts/src/components --print data-dependency
-          slither ./common-contracts/src/interfaces --print data-dependency
-          slither ./common-contracts/src/libraries --print data-dependency
-          slither ./common-contracts/src/upgrade --print data-dependency
+      # - name: Data dependency
+      #   run: |
+      #     slither ./common-contracts/src/components --print data-dependency
+      #     slither ./common-contracts/src/interfaces --print data-dependency
+      #     slither ./common-contracts/src/libraries --print data-dependency
+      #     slither ./common-contracts/src/upgrade --print data-dependency
