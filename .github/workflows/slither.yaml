@@ -1,0 +1,19 @@
+name: Slither Analysis
+on:
+    push:
+      branches: [main]
+      paths:
+        - "common-contracts/**"
+        - ".github/workflows/mythril.yaml"
+    pull_request:
+      branches: [main]
+      paths:
+        - "common-contracts/**"
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: crytic/slither-action@v0.3.0
+        with:
+            target: 'common-contracts/src/components/*'
