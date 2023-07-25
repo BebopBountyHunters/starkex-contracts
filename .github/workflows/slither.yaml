@@ -1,10 +1,10 @@
-name: Slither Analysis
+name: Slither
 on:
     push:
       branches: [main]
       paths:
         - "common-contracts/**"
-        - ".github/workflows/mythril.yaml"
+        - ".github/workflows/slither.yaml"
     pull_request:
       branches: [main]
       paths:
