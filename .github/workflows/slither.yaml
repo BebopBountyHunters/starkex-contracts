@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         python-version: [3.8]
-        node-version: [16.x]
+        node-version: [12]
 
     steps:
       - uses: actions/checkout@v3
@@ -28,19 +28,21 @@ jobs:
       - run: yarn compile
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install dependencies
+      - name: Install solc
         run: |
-          sudo snap install solc
+          sudo wget -O /usr/bin/solc https://github.com/ethereum/solidity/releases/download/v0.6.12/solc-static-linux
+          sudo chmod +x /usr/bin/solc
+      - name: Install slither
+        run: |
           python -m pip install --upgrade pip
-          pip3 install slither-analyzer==0.8.1 solc-select==0.2.1
+          pip3 install slither-analyzer==0.8.1
 
       - name: Summary of static ananlysis
         run: |
-          solc-select use 0.2.1 &
           slither ./common-contracts/src/components/ --print human-summary
       #     slither ./common-contracts/src/interfaces --print human-summary
       #     slither ./common-contracts/src/libraries --print human-summary
